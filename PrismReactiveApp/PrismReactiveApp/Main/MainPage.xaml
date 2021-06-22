@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PrismReactiveApp.Main.MainPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <ScrollView>
+                <StackLayout>
+                    <Label FontAttributes="Bold"
+                           FontSize="Large"
+                           Text="Fules" />
+
+                    <StackLayout BindableLayout.ItemsSource="{Binding FuelCollection}">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <!--<Label Text="{Binding Name}"/>-->
+                                <Frame Margin="5"
+                                       BackgroundColor="Gray">
+                                    <StackLayout Orientation="Horizontal">
+                                        <StackLayout>
+                                            <Label Text="{Binding CODIGO_DATE }" />
+                                            <Label Text="{Binding COMBUSTIBLE}" />
+                                            <Label Text="{Binding PRECIO}" />
+                                            <Label Text="{Binding SEMANA_LABEL}" />
+                                            <Label Text="{Binding FECHA_REGISTRO}" />
+                                            <Label Text="{Binding CODIGO_GUI}" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+
+                    <Label FontAttributes="Bold"
+                           FontSize="Large"
+                           Text="Categorias" />
+
+                    <StackLayout Orientation="Horizontal">
+
+                        <Button Command="{Binding SortAllCommandAZ}"
+                                Text="Sort AZ" />
+
+                        <Button Command="{Binding SortAllCommandZA}"
+                                Text="Sort ZA" />
+
+                        <Button Command="{Binding SorCMtAllCommandAZ}"
+                                Text="CMSort AZ" />
+
+                        <Button Command="{Binding SortCMAllCommandZA}"
+                                Text="CMSort ZA" />
+
+                    </StackLayout>
+
+                    <StackLayout BindableLayout.ItemsSource="{Binding Categories}">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <!--<Label Text="{Binding Name}"/>-->
+                                <Frame Margin="5"
+                                       BackgroundColor="DarkGray">
+                                    <StackLayout>
+                                        <Label Text="{Binding Name}" />
+
+                                        <StackLayout BindableLayout.ItemsSource="{Binding Products}">
+                                            <BindableLayout.ItemTemplate>
+                                                <DataTemplate>
+                                                    <!--<Label Text="{Binding Name}"/>-->
+                                                    <Frame Margin="5"
+                                                           BackgroundColor="Gray">
+                                                        <StackLayout Orientation="Horizontal">
+                                                            <StackLayout>
+                                                                <Label Text="{Binding Name}" />
+                                                                <Label Text="{Binding Description}" />
+                                                            </StackLayout>
+
+                                                            <Button HorizontalOptions="EndAndExpand"
+                                                                    Command="{Binding FilterCommand}"
+                                                                    Text="Press me" />
+                                                        </StackLayout>
+                                                    </Frame>
+                                                </DataTemplate>
+                                            </BindableLayout.ItemTemplate>
+                                        </StackLayout>
+                                        
+                                    </StackLayout>
+                                </Frame>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+                    
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>
